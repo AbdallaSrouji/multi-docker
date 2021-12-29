@@ -10,17 +10,17 @@ script:
   - docker run -e CI=true abdallasrouji/multi-docker npm run test
 
 after_success: 
-  - docker build -t abdallasrouji/multi-client ./client
-  - docker build -t abdallasrouji/multi-nginx ./nginx
-  - docker build -t abdallasrouji/multi-server ./server
-  - docker build -t abdallasrouji/multi-worker ./worker
+  - docker build -t abdallasr/multi-client ./client
+  - docker build -t abdallasr/multi-nginx ./nginx
+  - docker build -t abdallasr/multi-server ./server
+  - docker build -t abdallasr/multi-worker ./worker
   # Login to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push abdallasrouji/multi-client
-  - docker push abdallasrouji/multi-nginx
-  - docker push abdallasrouji/multi-server
-  - docker push abdallasrouji/multi-worker
+  - docker push abdallasr/multi-client
+  - docker push abdallasr/multi-nginx
+  - docker push abdallasr/multi-server
+  - docker push abdallasr/multi-worker
 # deploy: 
 #   provider: elasticbeanstalk
 #   region: "eu-west-1"
